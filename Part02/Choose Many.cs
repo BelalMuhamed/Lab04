@@ -42,14 +42,17 @@ namespace Part02
             Answers = new string[numberofanswers];
             CorrectAnswerIndexes=new int[correctanswersnumber];
         }
-        public override void PrintData()
+        public override StringBuilder PrintData()
         {
-            base.PrintData();
-            Console.Write("Correct Answer : ");
+          
+            StringBuilder ss=new StringBuilder();
+             ss.Append(base.PrintData());
+            ss.Append("Correct answers : ");
             for (int i = 0; i < CorrectAnswerIndexes.Length; i++) 
             {
-                Console.Write($"{CorrectAnswerIndexes[i] },");
+                 ss.Append($"{CorrectAnswerIndexes[i] },");
             }
+            return ss;
         }
     }
 }

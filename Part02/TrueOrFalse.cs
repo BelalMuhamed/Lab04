@@ -15,7 +15,7 @@ namespace Part02
 			get { return correctanswerindex; }
 			set 
 			{
-				if (value == 0 || value == 1)
+				if (value == 1 || value == 2)
 					correctanswerindex = value;
 				else
 					throw new ArgumentException("Not valid");
@@ -26,10 +26,10 @@ namespace Part02
 			Header = "True or False";
 			Answers = ["True", "False"];
         }
-        public override void PrintData()
+        public override StringBuilder PrintData()
 		{
-			base.PrintData();
-            Console.WriteLine($"correct answer:{correctanswerindex}");
-		}
+			
+            return (base.PrintData().Append($"correct answer:{correctanswerindex}"));
+        }
     }
 }

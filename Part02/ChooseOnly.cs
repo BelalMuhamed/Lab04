@@ -16,7 +16,7 @@ namespace Part02
             get { return correctanswerindex; }
             set
             {
-                if (value == 1 || value == 2)
+                if (value<=numberofanswers)
                     correctanswerindex = value;
                 else
                     throw new ArgumentException("Not valid");
@@ -41,10 +41,10 @@ namespace Part02
             Header = "Choose Only ";
             Answers = new string[numberofanswers];
         }
-        public override void PrintData()
+        public override StringBuilder PrintData()
         {
-            base.PrintData();
-            Console.WriteLine($"correct answer:{correctanswerindex}");
+            return (base.PrintData().Append($"correct answer:{correctanswerindex}"));
+            
         }
     }
 }

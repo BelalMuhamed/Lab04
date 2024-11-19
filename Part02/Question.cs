@@ -31,14 +31,15 @@ namespace Part02
 
         public string[] Answers { get; set; }
        
-        public virtual void PrintData()
+        public virtual StringBuilder PrintData()
         {
-            Console.WriteLine($"{Header} \n {Body} ");
+            StringBuilder sb = new StringBuilder($"{Header} \n {Body} \n");
             for (int i = 0; i < Answers.Length; i++)
             {
-                Console.WriteLine($" {i+1}) {Answers[i]}");
+                sb.Append($" {i+1}) {Answers[i]} \n");
             }
-            Console.WriteLine($"Marks = {mark}");
+            sb.Append($"Marks = {mark} \n");
+            return sb;
         }
         
     }
